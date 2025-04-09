@@ -4,7 +4,6 @@ public class AuthUtil {
 
     private static final String FILE_NAME = "users.csv";
 
-    // Check if username & password match any line in the file
     public static boolean validateLogin(String username, String password) {
         try (BufferedReader br = new BufferedReader(new FileReader(FILE_NAME))) {
             String line;
@@ -22,11 +21,11 @@ public class AuthUtil {
         return false;
     }
 
-    // Append new user (sign up)
+
     public static boolean signUp(String username, String password) {
-        // Check if user already exists
+
         if (validateLogin(username, password)) {
-            return false; // Don't allow duplicate user with same credentials
+            return false; 
         }
 
         try (FileWriter fw = new FileWriter(FILE_NAME, true);
